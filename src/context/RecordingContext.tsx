@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, useCallback, useRef, type ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from 'react';
 import type { RecordingState, StoredRecording } from '../types/recording';
 import { useAudioRecorder } from '../hooks/useAudioRecorder';
 import { getAllRecordings, deleteRecording as deleteFromDB } from '../services/recordingStorage';
@@ -27,27 +27,16 @@ export function RecordingProvider({ children }: { children: ReactNode }) {
         setRecordings(all);
     }, []);
 
-    // Load recordings on mount and after recording stops
+    // Load recordings on mount
     useEffect(() => {
         refreshRecordings();
     }, [refreshRecordings]);
 
-<<<<<<< Updated upstream
-    // Refresh list when recording stops (transitions to idle from non-idle)
-    const prevStateRef = useRef<RecordingState>(recorder.recordingState);
-    useEffect(() => {
-        if (prevStateRef.current !== 'idle' && recorder.recordingState === 'idle') {
-            refreshRecordings();
-        }
-        prevStateRef.current = recorder.recordingState;
-    }, [recorder.recordingState, refreshRecordings]);
-=======
     // Wrap stopRecording to refresh the list immediately after save completes
     const stopRecording = useCallback(async () => {
         await recorder.stopRecording();
         await refreshRecordings();
     }, [recorder.stopRecording, refreshRecordings]);
->>>>>>> Stashed changes
 
     const deleteRecording = useCallback(
         async (id: string) => {

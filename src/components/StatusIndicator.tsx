@@ -15,6 +15,7 @@ export function StatusIndicator() {
         idle: { label: 'Ready', className: 'status-idle' },
         recording: { label: 'Recording', className: 'status-recording' },
         paused: { label: 'Paused', className: 'status-paused' },
+        interrupted: { label: 'Reconnecting...', className: 'status-interrupted' },
     };
 
     const { label, className } = statusConfig[recordingState];

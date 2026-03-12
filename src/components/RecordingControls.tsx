@@ -14,12 +14,20 @@ export function RecordingControls() {
                 </button>
             )}
 
-            {recordingState === 'recording' && (
+            {(recordingState === 'recording' || recordingState === 'interrupted') && (
                 <div className="btn-group">
-                    <button className="btn btn-pause" onClick={pauseRecording}>
+                    <button
+                        className="btn btn-pause"
+                        onClick={pauseRecording}
+                        disabled={recordingState === 'interrupted'}
+                    >
                         ⏸ Pause
                     </button>
-                    <button className="btn btn-stop" onClick={stopRecording}>
+                    <button
+                        className="btn btn-stop"
+                        onClick={stopRecording}
+                        disabled={recordingState === 'interrupted'}
+                    >
                         ⏹ Stop
                     </button>
                 </div>
