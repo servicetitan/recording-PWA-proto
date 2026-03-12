@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, useCallback, useRef, type ReactNode } from 'react';
 import type { RecordingState, StoredRecording } from '../types/recording';
 import { useAudioRecorder } from '../hooks/useAudioRecorder';
 import { getAllRecordings, deleteRecording as deleteFromDB } from '../services/recordingStorage';
@@ -33,7 +33,7 @@ export function RecordingProvider({ children }: { children: ReactNode }) {
     }, [refreshRecordings]);
 
     // Refresh list when recording stops (transitions to idle from non-idle)
-    const prevStateRef = { current: recorder.recordingState };
+    const prevStateRef = useRef<RecordingState>(recorder.recordingState);
     useEffect(() => {
         if (prevStateRef.current !== 'idle' && recorder.recordingState === 'idle') {
             refreshRecordings();
