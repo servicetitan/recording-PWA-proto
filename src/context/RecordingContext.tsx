@@ -32,6 +32,7 @@ export function RecordingProvider({ children }: { children: ReactNode }) {
         refreshRecordings();
     }, [refreshRecordings]);
 
+<<<<<<< Updated upstream
     // Refresh list when recording stops (transitions to idle from non-idle)
     const prevStateRef = { current: recorder.recordingState };
     useEffect(() => {
@@ -40,6 +41,13 @@ export function RecordingProvider({ children }: { children: ReactNode }) {
         }
         prevStateRef.current = recorder.recordingState;
     }, [recorder.recordingState, refreshRecordings]);
+=======
+    // Wrap stopRecording to refresh the list immediately after save completes
+    const stopRecording = useCallback(async () => {
+        await recorder.stopRecording();
+        await refreshRecordings();
+    }, [recorder.stopRecording, refreshRecordings]);
+>>>>>>> Stashed changes
 
     const deleteRecording = useCallback(
         async (id: string) => {
@@ -53,6 +61,7 @@ export function RecordingProvider({ children }: { children: ReactNode }) {
         <RecordingContext.Provider
             value={{
                 ...recorder,
+                stopRecording,
                 recordings,
                 deleteRecording,
                 refreshRecordings,
