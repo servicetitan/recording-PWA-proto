@@ -13,7 +13,7 @@
         "test": "startup test"
     },
     "devDependencies": {
-        "@servicetitan/startup": "~20.0.0"
+        "@servicetitan/startup": "~34.3.0"
     },
     "workspaces": [
         "packages/*"
