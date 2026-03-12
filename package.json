@@ -1,21 +1,32 @@
 {
-    "name": "root",
-    "version": "0.0.0",
-    "description": "Multi-package web application template",
-    "private": true,
-    "scripts": {
-        "bootstrap": "node bootstrap.js",
-        "prestart": "npm run bootstrap",
-        "start": "startup start",
-        "prebuild": "npm run bootstrap",
-        "build": "startup build",
-        "lint": "startup lint",
-        "test": "startup test"
-    },
-    "devDependencies": {
-        "@servicetitan/startup": "~20.0.0"
-    },
-    "workspaces": [
-        "packages/*"
-    ]
+  "name": "vite-temp",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "idb": "^8.0.3",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.4",
+    "@types/node": "^24.12.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.2.0",
+    "eslint": "^9.39.4",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "globals": "^17.4.0",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.56.1",
+    "vite": "^7.3.1",
+    "vite-plugin-pwa": "^1.2.0"
+  }
 }

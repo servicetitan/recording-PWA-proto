@@ -1,5 +1,0 @@
-{
-    "extends": "@servicetitan/startup/tsconfig/base",
-    "include": ["**/__tests__/**/*", "**/*.d.ts"],
-    "exclude": ["node_modules"]
-}

@@ -1,3 +1,0 @@
-{
-    "extends": ["@servicetitan/eslint-config/mono"]
-}
