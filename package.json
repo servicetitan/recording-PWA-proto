@@ -1,0 +1,21 @@
+{
+    "name": "root",
+    "version": "0.0.0",
+    "description": "Multi-package web application template",
+    "private": true,
+    "scripts": {
+        "bootstrap": "node bootstrap.js",
+        "prestart": "npm run bootstrap",
+        "start": "startup start",
+        "prebuild": "npm run bootstrap",
+        "build": "startup build",
+        "lint": "startup lint",
+        "test": "startup test"
+    },
+    "devDependencies": {
+        "@servicetitan/startup": "~20.0.0"
+    },
+    "workspaces": [
+        "packages/*"
+    ]
+}

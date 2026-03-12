@@ -1,0 +1,7 @@
+@import '~@servicetitan/tokens/dist/tokens.css';
+@import '~@servicetitan/anvil-fonts/dist/css/anvil-fonts.css';
+@import '~@servicetitan/design-system/dist/system.min.css';
+
+body {
+    margin: var(--spacing-0);
+}

@@ -1,0 +1,10 @@
+{
+    "extends": "@servicetitan/startup/tsconfig/base",
+    "compilerOptions": {
+        "outDir": "dist",
+        "rootDir": "src",
+        "composite": true
+    },
+    "include": ["src/**/*"],
+    "exclude": ["src/**/__tests__/**/*"]
+}
